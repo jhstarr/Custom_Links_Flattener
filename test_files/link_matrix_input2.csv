@@ -1,0 +1,7 @@
+,,100,200,500,300
+,,in_convo_100,in_convo_200,in_convo_500,in_convo_300
+100,"Structure™, to ,convo_100",,bucket_1,bucket_1,bucket_1
+200,B_ to_convo_200,bucket_2,,,bucket_1
+300,A_to_convo_300,bucket_2,,,
+500,A1_to_convo_500,bucket_2,,,
+300,A_to_convo_300,bucket_3,,,
