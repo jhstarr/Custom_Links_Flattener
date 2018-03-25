@@ -1,7 +1,7 @@
 # Jeff Starr, 26 September, 2017
 
 # This is a function that takes the links matrix provided to 01Click
-# by Customer and returns a flattened matrix that can be processed 
+# by Customer and returns a flattened matrix that can be processed, 
 # written to a file then imported into the Conversations app.
 
 #------------Imports, initialization, and read the input_matrix----------
@@ -25,8 +25,9 @@ def process_links_matrix(links_input_filename,history_input_filename):
     history_extract = []
     discard_matrix = []
 
-# Create constants that correspond to the field positions in the output
-# and history matrices.
+# Create constants that correspond to field positions in the output
+# and history matrices.  All field positions are not made into constants
+# because all of them are not needed as values for sorting, etc.
     IN_HOTPLAY_ID_COLUMN = 1
     TO_HOTPLAY_NAME_COLUMN = 2
     TO_HOTPLAY_ID_COLUMN = 3
@@ -45,9 +46,9 @@ def process_links_matrix(links_input_filename,history_input_filename):
 
 # ----Clean up the matrix-----
 
-# Put the first row of input_matrix into list in_hotplay_ids.  Pop off the 
-# first two items which are leftward column headings.  Finally, remove this
-# row from input_matrix now that it is stored within in_hotplay_ids.
+# Put the first row of input_matrix into the list in_hotplay_ids.  Pop off the 
+# first two items which are throwaway column headings.  Then, remove this
+# row from input_matrix now that it is stored elsewhere.
     in_hotplay_ids = input_matrix[0]
     in_hotplay_ids.pop(0)
     in_hotplay_ids.pop(0)
@@ -60,7 +61,7 @@ def process_links_matrix(links_input_filename,history_input_filename):
     input_matrix.pop(0)
 
 # Grab first two items in row which are the to hotplay id and hotplay name.
-# Append them to a list of numbers and names respectively.
+# Append them to a list of ids and names respectively.
 # Then, pop them off. After this, input_matrix is stripped of 
 # header rows and columns with the convo ids and names.
 
@@ -72,7 +73,7 @@ def process_links_matrix(links_input_filename,history_input_filename):
 
 # ---------Build the records of pre_output_matrix-----------------
 
-# Walk through the remaining core of the matrix that does not have headers.
+# Walk through the remaining core of the matrix now with no headers.
 # If item is blank, pass over.
 # If the item is not blank create the required record.
 
@@ -106,6 +107,8 @@ def process_links_matrix(links_input_filename,history_input_filename):
 
 # Sort by in_hotplay, by bucket, then by to_hotplay name.
 # Note that "Z" sorts before "a" in python.
+# You apply the sorts in reverse order in order to get the data sorted
+# the way you want it.
 
     pre_output_matrix =  sorted(
         pre_output_matrix, 

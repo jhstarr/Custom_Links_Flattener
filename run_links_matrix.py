@@ -1,6 +1,6 @@
 # Jeff Starr, 4 October, 2017
 
-# This is a program that calls the process_links_matrix function then 
+# This is a program that calls the links_matrix function then 
 # writes the data returned into two files.
 
 import csv

@@ -11,9 +11,7 @@ class MatrixTestCase(unittest.TestCase):
         correct results."""
         
         links_input_filename = 'test_files/link_matrix_input1.csv' 
-        links_output_filename = 'test_files/output_records1.csv'
         history_input_filename = 'test_files/links_history0.csv'
-        history_output_filename = 'test_files/links_history1.csv'
 
         results1 = process_links_matrix(
             links_input_filename,
@@ -35,9 +33,7 @@ class MatrixTestCase(unittest.TestCase):
         correct results."""
         
         links_input_filename = 'test_files/link_matrix_input2.csv' 
-        links_output_filename = 'test_files/output_records2.csv'
         history_input_filename = 'test_files/links_history1.csv'
-        history_output_filename = 'test_files/links_history2.csv'
 
         results2 = process_links_matrix(
             links_input_filename, 
